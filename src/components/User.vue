@@ -12,8 +12,10 @@
                 <!-- @resetname is in child that resets name  -->
                 <app-user-detail :name="name" @resetname="name = $event"></app-user-detail>
             </div>
+
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit :name='name' @nameChanged="name = $event">
+                </app-user-edit>
             </div>
         </div>
     </div>

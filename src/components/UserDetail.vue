@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { eventBus } from '../main';
 export default{
     // can also be an object
     // props : ['name']
@@ -25,6 +26,12 @@ export default{
             // first param is the event name,second param is the data passed through event (accessed through $ sign)
             this.$emit('resetname',this.name);
         }
+    },
+    // passing parameter b/w child w/o parent
+    created(){
+        eventBus.$on('nameChanged',(name) => {
+            this.name = name;
+        })
     }
 }
 </script>
